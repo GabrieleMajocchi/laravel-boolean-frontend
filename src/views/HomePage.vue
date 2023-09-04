@@ -1,7 +1,9 @@
 <template>
-    <div>
-
-    </div>
+    <main>
+        <div class="container">
+            Questo e' il main
+        </div>
+    </main>
 </template>
 
 <script>
