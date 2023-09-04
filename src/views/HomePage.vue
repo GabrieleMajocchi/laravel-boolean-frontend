@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import SingleCocktail from "./components/SingleCocktail.vue"
+import SingleCocktail from "../components/SingleCocktail.vue";
 export default {
     data() {
         return {
