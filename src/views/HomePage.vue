@@ -32,6 +32,9 @@ export default {
     },
     created() {
         this.getData();
+    },
+    components: {
+        SingleCocktail
     }
 }
 </script>
