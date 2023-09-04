@@ -1,7 +1,7 @@
 <template>
     <article>
         <div class="container-fluid wrapper">
-            <div class="row">
+            <div class="row justify-content-center py-4">
                 <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
             </div>
         </div>
@@ -10,19 +10,19 @@
 
 <script>
 import SingleCocktail from "../components/SingleCocktail.vue";
+import  axios  from "axios";
 export default {
     data() {
         return {
-            apiUrl: '',
+            apiUrl: 'http://127.0.0.1:8000/api/cocktails',
             cocktails: [],
         }
     },
     methods: {
         getData() {
-            axios.get(/*inserire url */)
-                .then(function (response) {
-
-                    console.log(response);
+            axios.get(this.apiUrl)
+                .then( (response) => {
+                    this.cocktails = response.data.data;
                 })
                 .catch(function (error) {
                     // handle error
@@ -46,6 +46,7 @@ article {
 }
 
 .wrapper {
-    margin: 10vh
+    max-width: 1500px;
+    margin: 0 auto;
 }
 </style>
