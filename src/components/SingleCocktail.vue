@@ -42,7 +42,7 @@ export default {
 
     &.card-has-bg {
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-        background-size: 120%;
+        background-size: 100%;
         background-repeat: no-repeat;
         background-position: center center;
 
@@ -54,11 +54,8 @@ export default {
             bottom: 0;
             left: 0;
             background: inherit;
-            -webkit-filter: grayscale(1);
-            -moz-filter: grayscale(100%);
-            -ms-filter: grayscale(100%);
-            -o-filter: grayscale(100%);
-            filter: grayscale(100%);
+
+            filter: grayscale(30%);
         }
 
         &:hover {
@@ -69,8 +66,8 @@ export default {
 
             .card-img-overlay {
                 transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-                background: rgb(255, 186, 33);
-                background: linear-gradient(0deg, rgba(255, 186, 33, 0.5) 0%, rgba(255, 186, 33, 1) 100%);
+                background: rgba(240, 233, 218, .6);
+
             }
         }
     }
@@ -115,8 +112,7 @@ export default {
 
     .card-img-overlay {
         transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-        background: rgb(255, 186, 33);
-        background: linear-gradient(0deg, rgba(255, 186, 33, 0.3785889355742297) 0%, rgba(255, 186, 33, 1) 100%);
+
     }
 }
 </style>
