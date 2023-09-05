@@ -117,6 +117,11 @@ export default {
             transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
         }
 
+        .card-footer {
+            margin-bottom: 10px;
+            transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
         cursor: pointer;
         transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
     }
