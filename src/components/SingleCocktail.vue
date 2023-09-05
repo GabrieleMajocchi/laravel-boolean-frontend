@@ -1,23 +1,25 @@
 <template>
     <div class="col-lg-4 mb-4 col-md-6 col-sm-12">
-        <div class="card card-has-bg" :style="{ 'background-image': 'url(' + cocktail.image + ')' }">
+        
+        <router-link :to="{ name: 'CocktailShow', params: { id: cocktail.id }}">
+            <div class="card card-has-bg" :style="{ 'background-image': 'url(' + cocktail.image + ')' }">
 
-            <div class="card-img-overlay d-flex flex-column">
-                <div class="card-body">
-                    <small class="card-meta mb-2">{{ cocktail.category }}</small>
-                    <h4 class="card-title mt-0">{{ cocktail.name }}</h4>
-                    <small> {{ cocktail.instructions }}</small>
-                </div>
-                <div class="card-footer">
-                    <div class="media">
-                        <div class="media-body">
-                            <h6 class="my-0 d-block">{{ cocktail.alcoholic }}</h6>
-                            <small>{{ cocktail.glass }}</small>
+                <div class="card-img-overlay d-flex flex-column">
+                    <div class="card-body">
+                        <small class="card-meta mb-2">{{ cocktail.category }}</small>
+                        <h4 class="card-title mt-0">{{ cocktail.name }}</h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="media">
+                            <div class="media-body">
+                                <h6 class="my-0 d-block">{{ cocktail.alcoholic }}</h6>
+                                <small>{{ cocktail.glass }}</small>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </router-link>
     </div>
 </template>
 
@@ -124,6 +126,10 @@ export default {
 
         cursor: pointer;
         transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+
+        a {
+            color: black;
+        }
     }
 
     .card-img-overlay {
@@ -138,6 +144,11 @@ export default {
     h4,
     h6 {
         color: white;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
     }
 }
 </style>
