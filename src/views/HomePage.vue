@@ -1,5 +1,6 @@
 <template>
     <article>
+        <Select :cocktails="cocktails" @mySelect="defineCategory" />
         <div class="container-fluid wrapper">
             <div class="row justify-content-center py-4">
                 <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
@@ -21,6 +22,7 @@
 
 <script>
 import SingleCocktail from "../components/SingleCocktail.vue";
+import Select from "../components/Select.vue";
 import axios from "axios";
 export default {
     data() {
@@ -31,9 +33,37 @@ export default {
             prevUrlPage: '',
             numberofPage: '',
             activeIndex: 1,
+            activeCategory: "",
         }
     },
     methods: {
+        defineCategory(element) {
+            this.activeCategory = element.name;
+            console.log(this.activeCategory);
+
+            axios.get(this.apiUrl, {
+                params: {
+                    archetype: this.activeCategory,
+                }
+            })
+                // ${this.activeArchetype}
+                .then((response) => {
+                    // handle success
+                    this.store.categoryList = response.data.data;
+                    console.log(store.categoryList)
+                    setTimeout(() => {
+                        this.categoryList = response.data;
+                    }, 2000)
+                })
+                .catch(function (error) {
+                    // handle error 
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
+        },
+
         getData(apiUrl = this.apiUrl) {
             axios.get(apiUrl)
                 .then((response) => {
@@ -74,7 +104,8 @@ export default {
         this.getData();
     },
     components: {
-        SingleCocktail
+        SingleCocktail,
+        Select
     }
 }
 </script>
