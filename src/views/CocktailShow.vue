@@ -63,6 +63,10 @@
                         strong {
                             color: #ffda7c;
                         }
+
+                        div.ingredients {
+                        margin-bottom: 1rem;
+                        }
                     }
                 }
             }
@@ -84,6 +88,11 @@
                                 <p class="mb-4"><strong>Alcoholic:</strong> {{ cocktail.alcoholic }}</p>
                                 <p class="mb-4"><strong>Glass:</strong> {{ cocktail.glass }}</p>
                                 <p class="mb-4"><strong>Instructions:</strong> {{ cocktail.instructions }}</p>
+                                <div class="ingredients">
+                                    <span><strong>Ingredients: </strong></span>
+                                    <span v-for="(ingredient, index) in cocktail.ingredients">{{ ingredient.name }}<span v-if="index < cocktail.ingredients.length - 1">, </span></span>
+                                    <span v-if="!cocktail.ingredients.length">Empty</span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-6">
