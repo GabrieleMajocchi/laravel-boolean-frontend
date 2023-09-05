@@ -1,36 +1,21 @@
 <template>
     <div id="my_contacts-page">
-        <!-- <div class="container p-4">
-            <h1 class="p-3 text-center mb-5">Contatti</h1>
-            <p>Se vuoi contattarci per effettuare una prenotazione o per qualsiasi altro motivo, puoi farlo in uno dei seguenti modi:</p>
-            <ul>
-                <li>Telefono: <strong>+39 000 000 0000</strong></li>
-                <li>Email: <strong>cocktailbar@gmail.com</strong></li>
-                <li>Pagina Facebook: <strong>Cocktail Bar</strong></li>
-                <li>Profilo Instagram: <strong>cocktail_bar</strong></li>
-            </ul>
-            <p class="mb-5">Siamo sempre felici di ricevere i tuoi feedback, le tue richieste e le tue prenotazioni. Ti risponderemo il prima possibile.</p>
-            <h2>Orari di apertura</h2>
-            <p class="mb-5">Il nostro bar è aperto <strong>tutti i giorni dalle 18:00 alle 02:00</strong>. Puoi venire a trovarci in <strong>Via Roma, 12 a Milano</strong>. Abbiamo un ampio parcheggio e una terrazza con vista sulla città.</p>
-            <h2>Eventi</h2>
-            <p>Organizziamo spesso eventi musicali, culturali e di intrattenimento nel nostro bar. Puoi rimanere aggiornato sulle nostre iniziative seguendoci sui nostri canali social o iscrivendoti alla nostra newsletter <strong>qui</strong>. Se vuoi proporci una collaborazione o una serata speciale, non esitare a <strong>contattarci</strong>.</p>
-        </div> -->
         <div class="container">
             <div class="card-bg">
                 <div class="card p-5">
-                    <h1 class="p-3 text-center mb-5">Contatti</h1>
-                    <p>Se vuoi contattarci per effettuare una prenotazione o per qualsiasi altro motivo, puoi farlo in uno dei seguenti modi:</p>
+                    <h1 class="p-3 text-center mb-5">Contacts</h1>
+                    <p>If you want to contact us to make a reservation or for any other reason, you can do it in one of the following ways:</p>
                     <ul>
-                        <li>Telefono: <strong>+39 000 000 0000</strong></li>
-                        <li>Email: <strong>cocktailbar@gmail.com</strong></li>
-                        <li>Pagina Facebook: <strong>Cocktail Bar</strong></li>
-                        <li>Profilo Instagram: <strong>cocktail_bar</strong></li>
+                        <li>Telephone: <strong>+39 000 000 0000</strong></li>
+                        <li>Email: <strong>booltails@gmail.com</strong></li>
+                        <li>Facebook Page: <strong>Booltails Cocktail Bar</strong></li>
+                        <li>Instagram Profile: <strong>booltails_cocktail_bar</strong></li>
                     </ul>
-                    <p class="mb-5">Siamo sempre felici di ricevere i tuoi feedback, le tue richieste e le tue prenotazioni. Ti risponderemo il prima possibile.</p>
-                    <h2>Orari di apertura</h2>
-                    <p class="mb-5">Il nostro bar è aperto <strong>tutti i giorni dalle 18:00 alle 02:00</strong>. Puoi venire a trovarci in <strong>Via Roma, 12 a Milano</strong>. Abbiamo un ampio parcheggio e una terrazza con vista sulla città.</p>
-                    <h2>Eventi</h2>
-                    <p>Organizziamo spesso eventi musicali, culturali e di intrattenimento nel nostro bar. Puoi rimanere aggiornato sulle nostre iniziative seguendoci sui nostri canali social o iscrivendoti alla nostra newsletter <strong>qui</strong>. Se vuoi proporci una collaborazione o una serata speciale, non esitare a <strong>contattarci</strong>.</p>
+                    <p class="mb-5">We are always happy to receive your feedback, your requests and your reservations. We will reply as soon as possible.</p>
+                    <h2>Opening time</h2>
+                    <p class="mb-5">Our bar is open <strong>every day from 18:00 to 02:00</strong>. You can come and visit us in <strong>Via Roma, 12 in Milan</strong>. We have a large parking lot and a terrace overlooking the city.</p>
+                    <h2>Events</h2>
+                    <p>We often organize musical, cultural and entertainment events in our bar. You can stay updated on our initiatives by following us on our social channels or subscribing to our newsletter <strong>here</strong>. If you want to propose a collaboration or a special evening, do not hesitate to <strong>contact us</strong>.</p>
                 </div>
             </div>
         </div>
