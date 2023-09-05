@@ -5,30 +5,70 @@
                 <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
             </div>
         </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination m-0 justify-content-center ">
+                <li class="page-item bg-black"><button @click="prevPage"
+                        class="page-link bg-black text-white">Previous</button></li>
+                <li class="page-item bg-black text-white" v-for="page, index in numberofPage">
+                    <button @click="singlePage(index + 1)" class="page-link bg-black text-white"
+                        :class="activeIndex === index + 1 ? 'active' : ''">{{ index + 1 }}</button>
+                </li>
+                <li class="page-item"><button @click="nextPage" class="page-link bg-black text-white">Next</button></li>
+            </ul>
+        </nav>
     </article>
 </template>
 
 <script>
 import SingleCocktail from "../components/SingleCocktail.vue";
-import  axios  from "axios";
+import axios from "axios";
 export default {
     data() {
         return {
             apiUrl: 'http://127.0.0.1:8000/api/cocktails',
             cocktails: [],
+            nextUrlPage: '',
+            prevUrlPage: '',
+            numberofPage: '',
+            activeIndex: 1,
         }
     },
     methods: {
-        getData() {
-            axios.get(this.apiUrl)
-                .then( (response) => {
+        getData(apiUrl = this.apiUrl) {
+            axios.get(apiUrl)
+                .then((response) => {
+                    console.log(response)
+                    this.nextUrlPage = response.data.next_page_url;
                     this.cocktails = response.data.data;
+                    this.prevUrlPage = response.data.prev_page_url;
+                    this.lastUrlPage = response.data.last_page_url;
+                    this.firstUrlPage = response.data.first_page_url;
+                    this.numberofPage = response.data.last_page;
                 })
                 .catch(function (error) {
                     // handle error
                     console.log(error);
                 });
-        }
+            console.log(this.activeIndex)
+        },
+
+        singlePage(index) {
+            this.getData(`${this.apiUrl}?page=${index}`);
+            this.activeIndex = index;
+        },
+        nextPage() {
+            if (!this.nextUrlPage == '') {
+                this.getData(this.nextUrlPage);
+                this.activeIndex++;
+            }
+
+        },
+        prevPage() {
+            if (!this.prevUrlPage == '') {
+                this.getData(this.prevUrlPage);
+                this.activeIndex--;
+            }
+        },
     },
     created() {
         this.getData();
