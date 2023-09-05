@@ -1,5 +1,5 @@
 <template>
-    <div class="col-4 mb-4">
+    <div class="col-lg-4 mb-4 col-md-6 col-sm-12">
         <div class="card card-has-bg" :style="{ 'background-image': 'url(' + cocktail.image + ')' }">
 
             <div class="card-img-overlay d-flex flex-column">
