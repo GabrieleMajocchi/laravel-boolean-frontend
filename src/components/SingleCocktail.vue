@@ -74,7 +74,7 @@ export default {
 
             .card-img-overlay {
                 transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-                background: rgba(240, 233, 218, .6);
+                background: rgba(240, 233, 218, .4);
 
             }
         }
@@ -130,6 +130,7 @@ export default {
         transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
         height: 100%;
         padding: .3rem .5rem;
+        background: rgba(71, 71, 71, 0.4);
 
     }
 
