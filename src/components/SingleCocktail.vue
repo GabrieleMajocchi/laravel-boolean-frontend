@@ -13,7 +13,10 @@
                         <div class="media">
                             <div class="media-body">
                                 <h6 class="my-0 d-block">{{ cocktail.alcoholic }}</h6>
-                                <small>{{ cocktail.glass }}</small>
+                                <h5 class="my-0 d-block">{{ cocktail.glass }}</h5>
+                                <small>Ingredients: </small>
+                                <small v-for="(ingredient, index) in cocktail.ingredients">{{ ingredient.name }}<small v-if="index < cocktail.ingredients.length - 1">, </small></small>
+                                <small v-if="!cocktail.ingredients.length">Empty</small>
                             </div>
                         </div>
                     </div>
@@ -68,6 +71,7 @@ export default {
 
             small,
             h4,
+            h5,
             h6 {
                 color: rgba(0, 0, 0, .8);
             }
@@ -85,7 +89,7 @@ export default {
     .card-footer {
         background: transparent;
         border-top: none;
-        height: 10%;
+        height: 20%;
         padding: 0 1rem;
 
         .media {
@@ -142,6 +146,7 @@ export default {
 
     small,
     h4,
+    h5,
     h6 {
         color: white;
 
