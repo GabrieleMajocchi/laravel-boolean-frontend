@@ -1,17 +1,17 @@
 <template>
     <div class="col-4 mb-4">
-        <div class="card text-dark card-has-bg click-col" :style="{ 'background-image': 'url(' + cocktail.image + ')' }">
+        <div class="card card-has-bg" :style="{ 'background-image': 'url(' + cocktail.image + ')' }">
 
             <div class="card-img-overlay d-flex flex-column">
                 <div class="card-body">
                     <small class="card-meta mb-2">{{ cocktail.category }}</small>
-                    <h4 class="card-title mt-0 text-dark">{{ cocktail.name }}</h4>
+                    <h4 class="card-title mt-0">{{ cocktail.name }}</h4>
                     <small> {{ cocktail.instructions }}</small>
                 </div>
                 <div class="card-footer">
                     <div class="media">
                         <div class="media-body">
-                            <h6 class="my-0 text-dark d-block">{{ cocktail.alcoholic }}</h6>
+                            <h6 class="my-0 d-block">{{ cocktail.alcoholic }}</h6>
                             <small>{{ cocktail.glass }}</small>
                         </div>
                     </div>
@@ -30,19 +30,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//post card styles
-
 .card {
     border: none;
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     overflow: hidden;
     border-radius: 20px;
-    min-height: 450px;
+    height: 450px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+
+
 
     &.card-has-bg {
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-        background-size: 100%;
+        background-size: 130%;
         background-repeat: no-repeat;
         background-position: center center;
 
@@ -61,8 +61,16 @@ export default {
         &:hover {
             transform: scale(0.98);
             box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
-            background-size: 130%;
+            background-size: 140%;
             transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+
+            small,
+            h4,
+            h6 {
+                color: rgba(0, 0, 0, .8);
+            }
+
+
 
             .card-img-overlay {
                 transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -73,8 +81,10 @@ export default {
     }
 
     .card-footer {
-        background: none;
+        background: transparent;
         border-top: none;
+        height: 10%;
+        padding: 0 1rem;
 
         .media {
             img {
@@ -84,11 +94,12 @@ export default {
     }
 
     .card-title {
-        font-weight: 800
+        font-weight: 800;
+        color: white;
     }
 
     .card-meta {
-        color: rgba(0, 0, 0, 0.3);
+
         text-transform: uppercase;
         font-weight: 500;
         letter-spacing: 2px;
@@ -96,13 +107,13 @@ export default {
 
     .card-body {
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-
-
+        height: 400px;
+        padding: .5rem;
     }
 
     &:hover {
         .card-body {
-            margin-top: 30px;
+            margin-top: 10px;
             transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
         }
 
@@ -112,7 +123,15 @@ export default {
 
     .card-img-overlay {
         transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        height: 100%;
+        padding: .3rem .5rem;
 
+    }
+
+    small,
+    h4,
+    h6 {
+        color: white;
     }
 }
 </style>
