@@ -1,13 +1,20 @@
 <template>
-    <nav>
-        <div class="container">
-            <ul class="d-flex align-items-center list-unstyled gap-5 justify-content-end m-0">
-                <li v-for="link in links">
-                    <router-link class="text-decoration-none text-uppercase fw-semibold" :to="{ name: link.name }">{{
-                        link.link
-                    }}</router-link>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+        <div class="container-fluid px-0">
+            <router-link class="navbar-brand cs_logo ps-3" :to="{ name: links[0].name }">Booltails</router-link>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mb-lg-0 list d-flex justify-content-end">
+                    <li class="nav-item" v-for="link in links">
+                        <router-link class="nav-link text-decoration-none fw-semibold" :to="{ name: link.name }">{{
+                            link.link
+                        }}</router-link>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </template>
@@ -36,22 +43,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-nav {
-    padding: 1rem 0;
-    background-color: gray;
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+.list {
+    width: 100%;
 
-    a {
-        transition: all .3s ease;
-        color: black;
-        padding: 1rem;
+    .nav-item {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        position: relative;
+
+
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            bottom: 0;
+            top: 98%;
+            left: 0;
+            right: 100%;
+            transition: right 1s;
+        }
 
         &:hover {
-            color: darkgray;
-            background-color: rgba($color: #000000, $alpha: 0.3);
+            transition: right;
+
+            &:after {
+                right: 0;
+            }
         }
     }
 
 
+}
+
+.cs_logo {
+    color: #9a9c9e;
+    transition: all .5s;
+
+    &:hover {
+        color: #cdd1d4;
+    }
 }
 </style>
