@@ -1,8 +1,9 @@
 <template>
     <article>
-        <div class="container-fluid wrapper">
+        <Select :cocktails="cocktails" />
+        <div class=" container-fluid wrapper">
             <div class="row justify-content-center py-4">
-                <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
+                <SingleCocktail v-for=" cocktail  in  cocktails " :cocktail="cocktail" />
             </div>
         </div>
     </article>
@@ -10,7 +11,8 @@
 
 <script>
 import SingleCocktail from "../components/SingleCocktail.vue";
-import  axios  from "axios";
+import axios from "axios";
+import Select from "../components/Select.vue"
 export default {
     data() {
         return {
@@ -21,7 +23,7 @@ export default {
     methods: {
         getData() {
             axios.get(this.apiUrl)
-                .then( (response) => {
+                .then((response) => {
                     this.cocktails = response.data.data;
                 })
                 .catch(function (error) {
@@ -34,7 +36,8 @@ export default {
         this.getData();
     },
     components: {
-        SingleCocktail
+        SingleCocktail,
+        Select
     }
 }
 </script>
