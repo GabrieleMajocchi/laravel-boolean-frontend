@@ -30,7 +30,7 @@
     
     main {
         background-color: #161616;
-        height: 100vh;
+        height: calc(100vh - 40px);
         overflow-y: hidden;
 
         div.container {
