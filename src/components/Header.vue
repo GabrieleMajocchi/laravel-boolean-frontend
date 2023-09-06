@@ -1,6 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
         <div class="container-fluid px-0">
+            <img src="../images/icon.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top ms-2">
             <router-link class="navbar-brand cs_logo ps-3" :to="{ name: links[0].name }">Booltails</router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +77,7 @@ export default {
 }
 
 .cs_logo {
-    color: #9a9c9e;
+    color: rgb(255, 218, 124);
     transition: all .5s;
 
     &:hover {
