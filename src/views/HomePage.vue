@@ -1,5 +1,6 @@
 <template>
     <article>
+        <Select :cocktails="cocktails" @mySelect="getCocktailsFromSelect" />
         <div class="container-fluid wrapper">
             <div class="row justify-content-center py-4">
                 <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
@@ -21,19 +22,47 @@
 
 <script>
 import SingleCocktail from "../components/SingleCocktail.vue";
+import Select from "../components/Select.vue";
 import axios from "axios";
 export default {
     data() {
         return {
             apiUrl: 'http://127.0.0.1:8000/api/cocktails',
+            apiSelectCategoryUrl: 'http://127.0.0.1:8000/api/cocktails/filter/',
             cocktails: [],
             nextUrlPage: '',
             prevUrlPage: '',
             numberofPage: '',
             activeIndex: 1,
+            activeCategory: "",
         }
     },
     methods: {
+        getCocktailsFromSelect(cocktailType) {
+            this.activeCategory = cocktailType;
+            console.log(this.activeCategory);
+            const selectCategoryUrl = this.apiSelectCategoryUrl + this.activeCategory;
+            axios.get(selectCategoryUrl, {
+                params: {
+                    category: this.activeCategory,
+                }
+            })
+                .then((response) => {
+                    // handle success
+                    this.cocktails = response.data;
+                    console.log(response)
+                    console.log(selectCategoryUrl)
+                })
+                .catch(function (error) {
+                    // handle error 
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
+
+        },
+
         getData(apiUrl = this.apiUrl) {
             axios.get(apiUrl)
                 .then((response) => {
@@ -74,7 +103,8 @@ export default {
         this.getData();
     },
     components: {
-        SingleCocktail
+        SingleCocktail,
+        Select
     }
 }
 </script>
