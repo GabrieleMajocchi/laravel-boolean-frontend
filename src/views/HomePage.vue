@@ -6,7 +6,7 @@
                 <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
             </div>
         </div>
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation example" v-if="activeCategory == ''">
             <ul class="pagination m-0 justify-content-center ">
                 <li class="page-item bg-black"><button @click="prevPage"
                         class="page-link bg-black text-white">Previous</button></li>
