@@ -1,6 +1,6 @@
 <template>
     <article>
-        <Select :cocktails="cocktails" @mySelect="defineCategory" />
+        <Select :cocktails="cocktails" @mySelect="log" />
         <div class="container-fluid wrapper">
             <div class="row justify-content-center py-4">
                 <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
@@ -49,11 +49,7 @@ export default {
                 // ${this.activeArchetype}
                 .then((response) => {
                     // handle success
-                    this.store.categoryList = response.data.data;
                     console.log(store.categoryList)
-                    setTimeout(() => {
-                        this.categoryList = response.data;
-                    }, 2000)
                 })
                 .catch(function (error) {
                     // handle error 
@@ -62,6 +58,9 @@ export default {
                 .finally(function () {
                     // always executed
                 });
+        },
+        log(message) {
+            console.warn(message);
         },
 
         getData(apiUrl = this.apiUrl) {
