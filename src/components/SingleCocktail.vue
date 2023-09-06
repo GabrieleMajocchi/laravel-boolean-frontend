@@ -1,28 +1,28 @@
 <template>
     <div class="col-lg-4 mb-4 col-md-6 col-sm-12">
-        
-        <router-link :to="{ name: 'CocktailShow', params: { id: cocktail.id }}">
-            <div class="card card-has-bg" :style="{ 'background-image': 'url(' + cocktail.image + ')' }">
 
-                <div class="card-img-overlay d-flex flex-column">
-                    <div class="card-body">
-                        <small class="card-meta mb-2">{{ cocktail.category }}</small>
-                        <h4 class="card-title mt-0">{{ cocktail.name }}</h4>
-                    </div>
-                    <div class="card-footer">
-                        <div class="media">
-                            <div class="media-body">
-                                <h6 class="my-0 d-block">{{ cocktail.alcoholic }}</h6>
-                                <h5 class="my-0 d-block">{{ cocktail.glass }}</h5>
-                                <small>Ingredients: </small>
-                                <small v-for="(ingredient, index) in cocktail.ingredients">{{ ingredient.name }}<small v-if="index < cocktail.ingredients.length - 1">, </small></small>
-                                <small v-if="!cocktail.ingredients.length">Empty</small>
-                            </div>
+        <div class="card card-has-bg" :style="{ 'background-image': 'url(' + cocktail.image + ')' }">
+
+            <div class="card-img-overlay d-flex flex-column">
+                <div class="card-body">
+                    <small class="card-meta mb-2">{{ cocktail.category }}</small>
+                    <h4 class="card-title mt-0">{{ cocktail.name }}</h4>
+                </div>
+                <div class="card-footer">
+                    <div class="media">
+                        <div class="media-body">
+                            <h6 class="my-0 d-block">{{ cocktail.alcoholic }}</h6>
+                            <h5 class="my-0 d-block">{{ cocktail.glass }}</h5>
+                            <small>Ingredients: </small>
+                            <small v-for="(ingredient, index) in cocktail.ingredients">{{ ingredient.name }}<small
+                                    v-if="index < cocktail.ingredients.length - 1">, </small></small>
+                            <small v-if="!cocktail.ingredients.length">Empty</small>
                         </div>
                     </div>
                 </div>
             </div>
-        </router-link>
+        </div>
+
     </div>
 </template>
 

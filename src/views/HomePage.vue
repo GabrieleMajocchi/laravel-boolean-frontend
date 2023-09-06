@@ -3,7 +3,8 @@
         <Select :cocktails="cocktails" @mySelect="getCocktailsFromSelect" />
         <div class="container-fluid wrapper">
             <div class="row justify-content-center py-4">
-                <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
+                <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail"
+                    @click="$router.push({ name: 'CocktailShow', params: { id: cocktail.id } })" />
             </div>
         </div>
         <nav aria-label="Page navigation example" v-if="activeCategory == ''">
@@ -41,7 +42,7 @@ export default {
         getCocktailsFromSelect(cocktailType) {
             this.activeCategory = cocktailType;
             console.log(this.activeCategory);
-            if(cocktailType != ''){
+            if (cocktailType != '') {
                 const selectCategoryUrl = this.apiSelectCategoryUrl + this.activeCategory;
                 axios.get(selectCategoryUrl, {
                     params: {
