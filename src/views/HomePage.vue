@@ -111,7 +111,6 @@ export default {
 
 <style lang="scss" scoped>
 article {
-    /* Created with https://www.css-gradient.com */
     background: #161616;
 }
 
