@@ -2,7 +2,7 @@
     <div class="container p-3">
         <div class="row d-flex justify-content-end">
             <div class="col-3">
-                <select class="form-select" v-model="selectedFilter" aria-label="Default select example"
+                <select class="form-select bg-dark text-light" v-model="selectedFilter" aria-label="Default select example"
                     @change="$emit('mySelect', selectedFilter)" id="category">
                     <option selected value="">Select a drink type</option>
                     <option v-for="category in filteredCategories" :value="category">
