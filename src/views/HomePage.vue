@@ -1,6 +1,6 @@
 <template>
     <article>
-        <Select :cocktails="cocktails" @mySelect="log" />
+        <Select :cocktails="cocktails" @mySelect="getCocktailsFromSelect" />
         <div class="container-fluid wrapper">
             <div class="row justify-content-center py-4">
                 <SingleCocktail v-for="cocktail in cocktails" :cocktail="cocktail" />
@@ -28,6 +28,7 @@ export default {
     data() {
         return {
             apiUrl: 'http://127.0.0.1:8000/api/cocktails',
+            apiSelectCategoryUrl: 'http://127.0.0.1:8000/api/cocktails/filter/',
             cocktails: [],
             nextUrlPage: '',
             prevUrlPage: '',
@@ -37,19 +38,20 @@ export default {
         }
     },
     methods: {
-        defineCategory(element) {
-            this.activeCategory = element.name;
+        getCocktailsFromSelect(cocktailType) {
+            this.activeCategory = cocktailType;
             console.log(this.activeCategory);
-
-            axios.get(this.apiUrl, {
+            const selectCategoryUrl = this.apiSelectCategoryUrl + this.activeCategory;
+            axios.get(selectCategoryUrl, {
                 params: {
-                    archetype: this.activeCategory,
+                    category: this.activeCategory,
                 }
             })
-                // ${this.activeArchetype}
                 .then((response) => {
                     // handle success
-                    console.log(store.categoryList)
+                    this.cocktails = response.data;
+                    console.log(response)
+                    console.log(selectCategoryUrl)
                 })
                 .catch(function (error) {
                     // handle error 
@@ -58,9 +60,7 @@ export default {
                 .finally(function () {
                     // always executed
                 });
-        },
-        log(message) {
-            console.warn(message);
+
         },
 
         getData(apiUrl = this.apiUrl) {
