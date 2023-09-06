@@ -41,7 +41,7 @@ export default {
     methods: {
         getCocktailsFromSelect(cocktailType) {
             this.activeCategory = cocktailType;
-            console.log(this.activeCategory);
+            // console.log(this.activeCategory);
             if (cocktailType != '') {
                 const selectCategoryUrl = this.apiSelectCategoryUrl + this.activeCategory;
                 axios.get(selectCategoryUrl, {
@@ -52,8 +52,8 @@ export default {
                     .then((response) => {
                         // handle success
                         this.cocktails = response.data;
-                        console.log(response)
-                        console.log(selectCategoryUrl)
+                        // console.log(response)
+                        // console.log(selectCategoryUrl)
                     })
                     .catch(function (error) {
                         // handle error 
@@ -84,7 +84,7 @@ export default {
         getData(apiUrl = this.apiUrl) {
             axios.get(apiUrl)
                 .then((response) => {
-                    console.log(response)
+                    // console.log(response)
                     this.nextUrlPage = response.data.next_page_url;
                     this.cocktails = response.data.data;
                     this.prevUrlPage = response.data.prev_page_url;
@@ -96,7 +96,7 @@ export default {
                     // handle error
                     console.log(error);
                 });
-            console.log(this.activeIndex)
+            // console.log(this.activeIndex)
         },
 
         singlePage(index) {

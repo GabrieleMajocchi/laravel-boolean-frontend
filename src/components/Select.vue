@@ -35,7 +35,7 @@ export default {
         getData(apiUrl = this.apiUrl) {
             axios.get(apiUrl)
                 .then((response) => {
-                    console.log(response)
+                    // console.log(response)
 
                     this.categories = response.data;
 
@@ -44,7 +44,7 @@ export default {
                             this.filteredCategories.push(category);
                         }
                         else {
-                            console.log('categoria  ' + category + ' già in uso');
+                            // console.log('categoria  ' + category + ' già in uso');
                         }
                     });
                 })
