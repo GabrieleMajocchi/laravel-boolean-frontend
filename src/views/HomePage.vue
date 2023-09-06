@@ -41,25 +41,42 @@ export default {
         getCocktailsFromSelect(cocktailType) {
             this.activeCategory = cocktailType;
             console.log(this.activeCategory);
-            const selectCategoryUrl = this.apiSelectCategoryUrl + this.activeCategory;
-            axios.get(selectCategoryUrl, {
-                params: {
-                    category: this.activeCategory,
-                }
-            })
-                .then((response) => {
-                    // handle success
-                    this.cocktails = response.data;
-                    console.log(response)
-                    console.log(selectCategoryUrl)
+            if(cocktailType != ''){
+                const selectCategoryUrl = this.apiSelectCategoryUrl + this.activeCategory;
+                axios.get(selectCategoryUrl, {
+                    params: {
+                        category: this.activeCategory,
+                    }
                 })
-                .catch(function (error) {
-                    // handle error 
-                    console.log(error);
-                })
-                .finally(function () {
-                    // always executed
-                });
+                    .then((response) => {
+                        // handle success
+                        this.cocktails = response.data;
+                        console.log(response)
+                        console.log(selectCategoryUrl)
+                    })
+                    .catch(function (error) {
+                        // handle error 
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        // always executed
+                    });
+            } else {
+                axios.get(this.apiUrl)
+                    .then((response) => {
+                        // handle success
+                        this.nextUrlPage = response.data.next_page_url;
+                        this.cocktails = response.data.data;
+                        this.prevUrlPage = response.data.prev_page_url;
+                        this.lastUrlPage = response.data.last_page_url;
+                        this.firstUrlPage = response.data.first_page_url;
+                        this.numberofPage = response.data.last_page;
+                    })
+                    .catch(function (error) {
+                        // handle error 
+                        console.log(error);
+                    });
+            }
 
         },
 
