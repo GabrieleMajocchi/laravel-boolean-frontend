@@ -69,9 +69,23 @@
                         }
                     }
                 }
+                a.goback{
+                    text-decoration: none;
+                    color: white;
+                    border: 1px solid #ffda7c;
+                    border-radius: 5px;
+                    margin-left: 0.9rem;
+                    padding: 0.4rem 0.4rem 0.4rem 0rem;
+                    img{
+                        height: 29px;
+                        width: 37px;
+                        margin-bottom: 0.4rem;
+                    }
+                }
             }
         }
     }     
+
 </style>
 
 <template>
@@ -94,6 +108,7 @@
                                     <span v-if="!cocktail.ingredients.length">Empty</span>
                                 </div>
                             </div>
+                            <a href="/" class="goback"><img src="../images/icon.png" alt="Logo">Back to cocktails list</a>
                         </div>
                         <div class="col-6">
                             <img :src="cocktail.image" :alt="cocktail.name">
